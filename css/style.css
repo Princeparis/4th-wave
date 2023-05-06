@@ -1,0 +1,173 @@
+:root {
+    --main-color: #ffffff;
+    --text-color: #000000;
+    --accent-color: #2727e6;
+}
+
+body.dark-mode {
+    --main-color: #000000;
+    --text-color: #ffffff;
+    --accent-color: #ff4141;
+}
+
+
+body {
+    font-family: IBM Plex Mono, sans-serif;
+    font-size: 24px;
+    line-height: 40px;
+    background-color: var(--main-color);
+    background-image: url(../imgs/grid.svg);
+    background-position: center center;
+    color: var(--text-color);
+    font-weight: 500;
+
+}
+
+section {
+    background-image: url(../imgs/grid.svg);
+    background-position: center center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transform: translate(0, 0);
+    transition: transform .5s ease;
+}
+
+body.nav-open section {
+    transform: translate(-150px, 0);
+}
+
+
+h1 {
+    position: fixed;
+    top: 32px;
+    left: 32px;
+}
+
+h1 rect {
+    fill: var(--accent-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+a.dark-mode-toggle {
+    position: fixed;
+    bottom: 32px;
+    left: 32px;
+    z-index: 80;
+}
+
+a.dark-mode-toggle circle {
+    fill: currentColor;
+}
+
+a.dark-mode-toggle:hover g.toggle circle {
+    transform: scale(1.75);
+}
+
+a.dark-mode-toggle g.toggle circle {
+    transition: transform .5s ease;
+}
+
+a.dark-mode-toggle rect {
+    stroke: currentColor;
+}
+
+a.menu-toggle {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 100;
+}
+
+a.menu-toggle rect {
+    fill: currentColor;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--main-color);
+    padding: 48px;
+    transform: translateX(100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform .5s 0s ease;
+}
+
+nav.fakenav-mid {
+    background-color: var(--accent-color);
+    transition-delay: .1s;
+}
+
+nav.fakenav-back {
+    background-color: var(--text-color);
+    transition-delay: .2s;
+}
+
+body.nav-open nav {
+    transform: translateX(0);
+    transition-delay: .2s;
+}
+body.nav-open nav.fakenav-mid {
+    transition-delay: .1s;
+}
+body.nav-open nav.fakenav-back {
+    transition-delay: 0s;
+}
+
+nav div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+nav div.internal {
+    font-size: 3rem;
+    line-height: 64px;
+    flex: 1;
+}
+
+svg {
+    vertical-align: middle;
+}
+
+div.wipe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    width: 100%;
+    height: 0%;
+    z-index: 109;
+    transition: background-color 0.0001s 2s;
+}
+
+svg.spiral {
+    border: solid 2px var(--accent-color);
+}
+
+svg.spiral rect {
+    fill: var(--accent-color);
+    fill-opacity: 0;
+    stroke: var(--accent-color);
+}
+
+svg.spiral rect:hover {
+    fill-opacity: 0.25;
+}
